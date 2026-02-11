@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --accent: #06b6d4;
+  --accent-foreground: #ffffff;
+  --accent-secondary: #f43f5e;
+  --accent-secondary-foreground: #ffffff;
+  --sidebar: #f1f5f9;
+  --sidebar-foreground: #334155;
+  --sidebar-active: #06b6d4;
+  --terminal-bg: #1e293b;
+  --terminal-foreground: #e2e8f0;
+  --radius: 0.75rem;
+  --tag-bg: #e0f2fe;
+  --tag-foreground: #0369a1;
+}
+
+.dark {
+  --background: #0a0e17;
+  --foreground: #e2e8f0;
+  --card: #111827;
+  --card-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --border: #1e293b;
+  --accent: #06b6d4;
+  --accent-foreground: #ffffff;
+  --accent-secondary: #f43f5e;
+  --accent-secondary-foreground: #ffffff;
+  --sidebar: #111827;
+  --sidebar-foreground: #94a3b8;
+  --sidebar-active: #06b6d4;
+  --terminal-bg: #0f172a;
+  --terminal-foreground: #e2e8f0;
+  --radius: 0.75rem;
+  --tag-bg: rgba(6, 182, 212, 0.15);
+  --tag-foreground: #06b6d4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-secondary-foreground: var(--accent-secondary-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-active: var(--sidebar-active);
+  --color-terminal-bg: var(--terminal-bg);
+  --color-terminal-foreground: var(--terminal-foreground);
+  --color-tag-bg: var(--tag-bg);
+  --color-tag-foreground: var(--tag-foreground);
+  --radius-base: var(--radius);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+* {
+  border-color: var(--border);
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted-foreground) transparent;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 3px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animated gradient background for dark mode */
+.dark .bg-gradient-animated {
+  background: 
+    radial-gradient(ellipse at 20% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+    var(--background);
+}
+
+.bg-gradient-animated {
+  background: 
+    radial-gradient(ellipse at 20% 0%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 0%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
+    var(--background);
+}
+
+/* Floating particles */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+  33% { transform: translateY(-10px) translateX(5px); opacity: 0.6; }
+  66% { transform: translateY(5px) translateX(-3px); opacity: 0.4; }
+}
+
+.particle {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Typing cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Section divider line */
+.section-line {
+  height: 1px;
+  background: linear-gradient(to right, var(--accent), transparent);
+}
