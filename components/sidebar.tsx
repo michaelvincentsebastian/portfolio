@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Home,
@@ -43,6 +44,11 @@ export function Sidebar() {
   const { activeSection, setActiveSection } = useSection();
   const { theme, setTheme } = useTheme();
   const { locale, setLocale } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <>
@@ -99,7 +105,7 @@ export function Sidebar() {
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            {mounted ? (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />) : <Sun size={18} />}
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -157,7 +163,7 @@ export function Sidebar() {
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground"
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            {mounted ? (theme === "dark" ? <Sun size={16} /> : <Moon size={16} />) : <Sun size={16} />}
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.9 }}
