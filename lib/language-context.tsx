@@ -9,20 +9,10 @@ import {
 } from "react";
 import { type Locale, type Translations, translations } from "./i18n";
 
-type DeepStringify<T> = T extends string
-  ? string
-  : T extends readonly (infer U)[]
-    ? DeepStringify<U>[]
-    : T extends object
-      ? { [K in keyof T]: DeepStringify<T[K]> }
-      : T;
-
-type TranslationValues = DeepStringify<Translations["en"]>;
-
 type LanguageContextType = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  t: TranslationValues;
+  t: Translations[Locale];
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
