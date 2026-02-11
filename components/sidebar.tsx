@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Home,
@@ -41,8 +42,15 @@ const sectionBorderColors: Record<Section, string> = {
 
 export function Sidebar() {
   const { activeSection, setActiveSection } = useSection();
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const { locale, setLocale } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark");
 
   return (
     <>
@@ -95,11 +103,15 @@ export function Sidebar() {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            {mounted ? (
+              resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />
+            ) : (
+              <span className="h-[18px] w-[18px]" />
+            )}
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -153,11 +165,15 @@ export function Sidebar() {
 
           <motion.button
             whileTap={{ scale: 0.9 }}
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground"
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            {mounted ? (
+              resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />
+            ) : (
+              <span className="h-4 w-4" />
+            )}
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.9 }}
