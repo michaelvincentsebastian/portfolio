@@ -7,12 +7,22 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
-import { type Locale, translations } from "./i18n";
+import { type Locale, type Translations, translations } from "./i18n";
+
+type DeepStringify<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+    ? DeepStringify<U>[]
+    : T extends object
+      ? { [K in keyof T]: DeepStringify<T[K]> }
+      : T;
+
+type TranslationValues = DeepStringify<Translations["en"]>;
 
 type LanguageContextType = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  t: (typeof translations)["en"];
+  t: TranslationValues;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
