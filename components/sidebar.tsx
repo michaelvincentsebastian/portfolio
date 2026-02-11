@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Home,
@@ -40,15 +39,19 @@ const sectionBorderColors: Record<Section, string> = {
   contact: "border-accent-secondary",
 };
 
+function ThemeIcon({ size = 18 }: { size?: number }) {
+  return (
+    <>
+      <Sun size={size} className="hidden dark:block" />
+      <Moon size={size} className="block dark:hidden" />
+    </>
+  );
+}
+
 export function Sidebar() {
   const { activeSection, setActiveSection } = useSection();
   const { setTheme, resolvedTheme } = useTheme();
   const { locale, setLocale } = useLanguage();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark");
 
@@ -106,13 +109,8 @@ export function Sidebar() {
             onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
             aria-label="Toggle theme"
-            suppressHydrationWarning
           >
-            {mounted ? (
-              resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />
-            ) : (
-              <span className="inline-block h-[18px] w-[18px]" />
-            )}
+            <ThemeIcon size={18} />
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -169,13 +167,8 @@ export function Sidebar() {
             onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground"
             aria-label="Toggle theme"
-            suppressHydrationWarning
           >
-            {mounted ? (
-              resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />
-            ) : (
-              <span className="inline-block h-4 w-4" />
-            )}
+            <ThemeIcon size={16} />
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.9 }}
