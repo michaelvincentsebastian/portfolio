@@ -11,13 +11,13 @@ export const translations = {
     },
     home: {
       greeting: "Hi,",
-      name: "I'm Michael",
-      position: "Data Engineer Intern @ PT. Data Andalan Utama",
+      name: "I'm Vincent",
+      position: "Data Engineer Intern @PT. Data Andalan Utama",
       description:
         "Passionate Data Engineer dedicated to turning raw, messy data into high-performance pipelines and actionable insights. I bridge the gap between complex data infrastructure and strategic decision-making, ensuring data is not just stored, but empowered to drive business growth.",
-      hireMeBtn: "Hire Me",
+      hireMeBtn: "Contact Me",
       seeWorkBtn: "See My Work",
-      whatILikeTitle: "WHAT I LIKE",
+      whatILikeTitle: "Tagline",
       tags: [
         "Data Architecture",
         "Data Pipeline",
@@ -28,9 +28,9 @@ export const translations = {
         "On-Premises",
       ],
       terminalLines: [
-        { prompt: "michael@de:~$ ", command: "whatilike" },
-        { output: "- data engineering" },
+        { prompt: "michael@de:~$ ", command: "what i do" },
         { output: "- building pipelines" },
+        { output: "- get business insights" },
         { prompt: "michael@de:~$ ", command: "expertise.core" },
         { output: "[Python] [SQL]" },
         { output: "[Data Engineering]" },
@@ -77,7 +77,7 @@ export const translations = {
         {
           date: "Jul 2023",
           title: "Enrolled at SMK Nusaputera 1 Semarang",
-          description: "Started my vocational high school journey in informatics",
+          description: "Started my vocational high school journey in Computer Network and Telecommunication Engineering",
         },
         {
           date: "Oct 2024",
@@ -107,8 +107,8 @@ export const translations = {
       ],
     },
     contact: {
-      title: "Hire",
-      titleAccent: "Me",
+      title: "Keep in Touch",
+      titleAccent: "Touch",
       description:
         "Open for new opportunities and collaborations. Drop me a message and I'll get back to you as soon as possible.",
       sendMessage: "Send Message",
