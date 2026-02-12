@@ -30,14 +30,14 @@ const techData: TechCategory[] = [
     items: [
       { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
       { name: "DuckDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/duckdb/duckdb-original.svg" },
-      { name: "MinIO", icon: "https://static.cdnlogo.com/logos/m/66/minio.svg" },
+      { name: "MinIO", icon: "/images/minio.svg" }, // Diubah ke lokal
       { name: "DuckLake", icon: "https://ducklake.select/images/logo/DuckLake-dark-icon.png" },
     ],
   },
   {
     key: "dataOrchestration",
     items: [
-      { name: "n8n", icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/n8n-icon.png" },
+      { name: "n8n", icon: "/images/n8n.webp" }, // Diubah ke lokal
       { name: "Airflow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg", soon: true },
     ],
   },
@@ -53,7 +53,7 @@ const techData: TechCategory[] = [
   {
     key: "dataIngestion",
     items: [
-      { name: "Airbyte", icon: "https://images.icon-icons.com/3911/PNG/512/airbyte_logo_icon_247683.png", soon: true },
+      { name: "Airbyte", icon: "/images/airbyte.png", soon: true }, // Diubah ke lokal
       { name: "Kafka", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg", soon: true, invertDark: true },
       { name: "Python Script", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
     ],
@@ -61,7 +61,7 @@ const techData: TechCategory[] = [
   {
     key: "cloudPlatforms",
     items: [
-      { name: "AWS S3", icon: "https://www.freelogovectors.net/wp-content/uploads/2022/03/amazon_s3_logo_freelogovectors.net_.png" },
+      { name: "AWS S3", icon: "/images/aws-s3.svg" }, // Diubah ke lokal
     ],
   },
   {
