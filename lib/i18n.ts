@@ -107,7 +107,7 @@ export const translations = {
       ],
     },
     contact: {
-      title: "Keep in Touch",
+      title: "Keep in ",
       titleAccent: "Touch",
       description:
         "Open for new opportunities and collaborations. Drop me a message and I'll get back to you as soon as possible.",
