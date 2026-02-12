@@ -36,7 +36,15 @@ export async function POST(request: Request) {
           color: 0x06b6d4, // Warna Cyan sesuai tema webmu
           fields: [
             { name: "Dari", value: `\`${email}\``, inline: true },
-            { name: "Waktu", value: new Date().toLocaleString("id-ID"), inline: true },
+            { 
+              name: "Waktu", 
+              value: new Date().toLocaleString("id-ID", {
+                timeZone: "Asia/Jakarta",
+                dateStyle: "medium",
+                timeStyle: "short",
+              }), 
+              inline: true 
+            },
             { name: "Isi Pesan", value: message },
           ],
           footer: { text: "Michael's Portfolio Notification" },
