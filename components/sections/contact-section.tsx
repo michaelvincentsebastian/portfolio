@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Github, Linkedin, Instagram } from "lucide-react";
+import { Phone, MapPin, Send, Github, Linkedin, Instagram, CheckCircle, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import { useState } from "react";
 
@@ -27,23 +27,32 @@ export function ContactSection() {
     message: "",
   });
   const [isSending, setIsSending] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSending(true);
+    setSubmitStatus("idle");
 
-    // Build mailto link
-    const mailtoLink = `mailto:vincentmichael514@gmail.com?subject=${encodeURIComponent(
-      formState.subject
-    )}&body=${encodeURIComponent(
-      `From: ${formState.email}\n\n${formState.message}`
-    )}`;
-    window.open(mailtoLink, "_blank");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
 
-    setTimeout(() => {
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormState({ email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
       setIsSending(false);
-      setFormState({ email: "", subject: "", message: "" });
-    }, 1000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    }
   };
 
   const socialLinks = [
@@ -55,17 +64,17 @@ export function ContactSection() {
     {
       name: "LinkedIn",
       icon: Linkedin,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/michaelvincentsebastian/",
     },
     {
       name: "Instagram",
       icon: Instagram,
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/mchlvincent_?igsh=Ym83bDZhZ2poZmIx",
     },
     {
       name: "Discord",
       icon: DiscordIcon,
-      href: "https://discord.com",
+      href: "https://discord.com/users/vinnokkotsu",
     },
   ];
 
@@ -155,8 +164,29 @@ export function ContactSection() {
                 className="flex items-center justify-center gap-2 rounded-xl bg-accent-secondary px-6 py-3.5 text-sm font-semibold text-accent-secondary-foreground transition-all hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] disabled:opacity-50"
               >
                 <Send size={16} />
-                {isSending ? "..." : t.contact.sendBtn}
+                {isSending ? "Sending..." : t.contact.sendBtn}
               </motion.button>
+
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 px-4 py-3 text-sm text-emerald-400"
+                >
+                  <CheckCircle size={16} />
+                  Message sent successfully!
+                </motion.div>
+              )}
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 rounded-xl bg-red-500/10 border border-red-500/30 px-4 py-3 text-sm text-red-400"
+                >
+                  <AlertCircle size={16} />
+                  Failed to send. Please try again.
+                </motion.div>
+              )}
             </form>
           </div>
         </motion.div>
@@ -174,23 +204,33 @@ export function ContactSection() {
             </h3>
             <div className="mt-4 flex flex-col gap-4">
               <a
-                href={`mailto:${t.contact.email}`}
+                href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
                 className="flex items-center gap-3 group"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-secondary/10 text-accent-secondary transition-transform group-hover:scale-110">
-                  <Mail size={18} />
+                  <Phone size={18} />
                 </div>
-                <span className="text-sm text-muted-foreground transition-colors group-hover:text-foreground">
-                  {t.contact.email}
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-xs text-muted-foreground">
+                    {t.contact.phoneLabel}
+                  </span>
+                  <span className="text-sm text-foreground transition-colors group-hover:text-accent">
+                    {t.contact.phone}
+                  </span>
+                </div>
               </a>
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-secondary/10 text-accent-secondary">
                   <MapPin size={18} />
                 </div>
-                <span className="text-sm text-muted-foreground">
-                  {t.contact.location}
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-xs text-muted-foreground">
+                    {t.contact.locationLabel}
+                  </span>
+                  <span className="text-sm text-foreground">
+                    {t.contact.location}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
