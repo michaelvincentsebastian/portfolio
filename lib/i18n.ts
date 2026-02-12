@@ -120,8 +120,10 @@ export const translations = {
       messagePlaceholder: "Write your message here...",
       sendBtn: "Send Message",
       contactInfo: "Contact Information",
-      email: "vincentmichael514@gmail.com",
+      phone: "+62 878 9663 0757",
+      phoneLabel: "Phone Number",
       location: "Semarang, Central Java, Indonesia",
+      locationLabel: "Location",
       socialMedia: "Social Media",
       connectMessage:
         "Feel free to reach out to me through any of these platforms. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
@@ -137,13 +139,13 @@ export const translations = {
     },
     home: {
       greeting: "Hai,",
-      name: "Saya Michael",
+      name: "Saya Vincent",
       position: "Data Engineer Intern @ PT. Data Andalan Utama",
       description:
         "Data Engineer yang berdedikasi mengubah data mentah dan berantakan menjadi pipeline berkinerja tinggi dan wawasan yang dapat ditindaklanjuti. Saya menjembatani kesenjangan antara infrastruktur data yang kompleks dan pengambilan keputusan strategis, memastikan data tidak hanya disimpan, tetapi diberdayakan untuk mendorong pertumbuhan bisnis.",
       hireMeBtn: "Hubungi Saya",
       seeWorkBtn: "Lihat Karya",
-      whatILikeTitle: "YANG SAYA SUKA",
+      whatILikeTitle: "Tagline",
       tags: [
         "Arsitektur Data",
         "Pipeline Data",
@@ -203,7 +205,7 @@ export const translations = {
         {
           date: "Jul 2023",
           title: "Masuk SMK Nusaputera 1 Semarang",
-          description: "Memulai perjalanan SMK di bidang informatika",
+          description: "Memulai perjalanan SMK di bidang Teknik Komputer dan Jaringan Telekomunikasi",
         },
         {
           date: "Okt 2024",
@@ -233,8 +235,8 @@ export const translations = {
       ],
     },
     contact: {
-      title: "Hubungi",
-      titleAccent: "Saya",
+      title: "Tetap",
+      titleAccent: "Terhubung",
       description:
         "Terbuka untuk peluang dan kolaborasi baru. Kirimkan pesan dan saya akan membalas sesegera mungkin.",
       sendMessage: "Kirim Pesan",
@@ -246,8 +248,10 @@ export const translations = {
       messagePlaceholder: "Tulis pesan Anda di sini...",
       sendBtn: "Kirim Pesan",
       contactInfo: "Informasi Kontak",
-      email: "vincentmichael514@gmail.com",
+      phone: "+62 878 9663 0757",
+      phoneLabel: "Nomor Telepon",
       location: "Semarang, Jawa Tengah, Indonesia",
+      locationLabel: "Lokasi",
       socialMedia: "Media Sosial",
       connectMessage:
         "Jangan ragu untuk menghubungi saya melalui platform ini. Saya selalu terbuka untuk mendiskusikan proyek baru, ide kreatif, atau peluang untuk menjadi bagian dari visi Anda.",

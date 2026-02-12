@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Home,
   Settings,
   Code2,
-  Heart,
+  Route,
   Mail,
   Sun,
   Moon,
@@ -16,11 +15,20 @@ import { useLanguage } from "@/lib/language-context";
 import { useSection, type Section } from "@/lib/section-context";
 import { cn } from "@/lib/utils";
 
+function ThemeIcon({ size = 18 }: { size?: number }) {
+  return (
+    <>
+      <Sun size={size} className="hidden dark:block" />
+      <Moon size={size} className="block dark:hidden" />
+    </>
+  );
+}
+
 const navItems: { id: Section; icon: typeof Home }[] = [
   { id: "home", icon: Home },
   { id: "techstack", icon: Settings },
   { id: "projects", icon: Code2 },
-  { id: "experience", icon: Heart },
+  { id: "experience", icon: Route },
   { id: "contact", icon: Mail },
 ];
 
@@ -44,11 +52,6 @@ export function Sidebar() {
   const { activeSection, setActiveSection } = useSection();
   const { setTheme, resolvedTheme } = useTheme();
   const { locale, setLocale } = useLanguage();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark");
 
@@ -106,13 +109,8 @@ export function Sidebar() {
             onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
             aria-label="Toggle theme"
-            suppressHydrationWarning
           >
-            {mounted ? (
-              resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />
-            ) : (
-              <span className="inline-block h-[18px] w-[18px]" />
-            )}
+            <ThemeIcon size={18} />
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -169,13 +167,8 @@ export function Sidebar() {
             onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground"
             aria-label="Toggle theme"
-            suppressHydrationWarning
           >
-            {mounted ? (
-              resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />
-            ) : (
-              <span className="inline-block h-4 w-4" />
-            )}
+            <ThemeIcon size={16} />
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.9 }}

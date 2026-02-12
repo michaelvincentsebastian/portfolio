@@ -3,105 +3,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 import { useSection } from "@/lib/section-context";
-import { useEffect, useState, useRef } from "react";
-
-function TerminalCard() {
-  const { t } = useLanguage();
-  const [displayedLines, setDisplayedLines] = useState<number>(0);
-  const [visitorCount, setVisitorCount] = useState(0);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    const totalLines = t.home.terminalLines.length;
-    let current = 0;
-    const interval = setInterval(() => {
-      current++;
-      setDisplayedLines(current);
-      if (current >= totalLines) clearInterval(interval);
-    }, 400);
-
-    // Count up visitor number
-    const target = 1610;
-    let count = 0;
-    const step = Math.ceil(target / 40);
-    const counterInterval = setInterval(() => {
-      count = Math.min(count + step, target);
-      setVisitorCount(count);
-      if (count >= target) clearInterval(counterInterval);
-    }, 50);
-
-    return () => {
-      clearInterval(interval);
-      clearInterval(counterInterval);
-    };
-  }, [t.home.terminalLines.length]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: 40 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay: 0.4 }}
-      className="w-full max-w-md rounded-xl border border-border bg-terminal-bg overflow-hidden"
-    >
-      {/* Terminal header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-        <div className="flex items-center gap-2">
-          <div className="h-3 w-3 rounded-full bg-red-500" />
-          <div className="h-3 w-3 rounded-full bg-yellow-500" />
-          <div className="h-3 w-3 rounded-full bg-green-500" />
-        </div>
-        <span className="font-mono text-xs text-muted-foreground">bash</span>
-      </div>
-
-      {/* Terminal body */}
-      <div className="p-4 font-mono text-sm leading-relaxed">
-        {t.home.terminalLines.map((line, i) => {
-          if (i >= displayedLines) return null;
-          if ("prompt" in line && "command" in line) {
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex"
-              >
-                <span className="text-green-400">{line.prompt}</span>
-                <span className="text-terminal-text">{line.command}</span>
-                {i === displayedLines - 1 && (
-                  <span className="terminal-cursor ml-0.5 inline-block h-4 w-2 bg-terminal-text" />
-                )}
-              </motion.div>
-            );
-          }
-          if ("output" in line) {
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="text-accent"
-              >
-                {line.output}
-              </motion.div>
-            );
-          }
-          return null;
-        })}
-      </div>
-
-      {/* Visitor count */}
-      <div className="border-t border-border px-4 py-3 flex items-center gap-2">
-        <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-        <span className="font-mono text-xs text-muted-foreground">
-          {t.home.visitors}: {visitorCount.toLocaleString()}
-        </span>
-      </div>
-    </motion.div>
-  );
-}
+import Image from "next/image";
 
 export function HomeSection() {
   const { t } = useLanguage();
@@ -178,10 +80,24 @@ export function HomeSection() {
           </motion.div>
         </motion.div>
 
-        {/* Right terminal card */}
-        <div className="flex-shrink-0">
-          <TerminalCard />
-        </div>
+        {/* Right profile picture */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex-shrink-0"
+        >
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl border-2 border-accent/30 overflow-hidden shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+            <Image
+              src="/images/pfp.png"
+              alt="Vincent - Data Engineer"
+              fill
+              className="object-cover"
+              priority
+              style={{ imageRendering: "pixelated" }}
+            />
+          </div>
+        </motion.div>
       </div>
 
       {/* What I Like tags */}

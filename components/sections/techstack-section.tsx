@@ -30,30 +30,30 @@ const techData: TechCategory[] = [
     items: [
       { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
       { name: "DuckDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/duckdb/duckdb-original.svg" },
-      { name: "MinIO", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/minio/minio-original.svg" },
-      { name: "DuckLake", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/duckdb/duckdb-original.svg" },
+      { name: "MinIO", icon: "https://static.cdnlogo.com/logos/m/66/minio.svg" },
+      { name: "DuckLake", icon: "https://ducklake.select/images/logo/DuckLake-dark-icon.png" },
     ],
   },
   {
     key: "dataOrchestration",
     items: [
-      { name: "n8n", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/n8n/n8n-original.svg" },
+      { name: "n8n", icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/n8n-icon.png" },
       { name: "Airflow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg", soon: true },
     ],
   },
   {
     key: "dataTransformation",
     items: [
-      { name: "dbt", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dbt/dbt-original.svg", soon: true },
-      { name: "SQLMesh", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" },
-      { name: "Talend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "dbt", icon: "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/3/dbt-icon-sefw4nnptjlk5lk13atgvm.png/dbt-icon-2yxlz1fvy25mvn5scgnlw.png?_a=DATAiZAAZAA0", soon: true },
+      { name: "SQLMesh", icon: "https://cdn.prod.website-files.com/67f7cdf0feddc96ca194ff1a/67f7cdf0feddc96ca1950030_symbol-sqlmesh.svg" },
+      { name: "Talend", icon: "https://upload.wikimedia.org/wikipedia/commons/7/70/TalendLogoCoral.png" },
       { name: "Apache Spark", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg", soon: true },
     ],
   },
   {
     key: "dataIngestion",
     items: [
-      { name: "Airbyte", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg", soon: true },
+      { name: "Airbyte", icon: "https://images.icon-icons.com/3911/PNG/512/airbyte_logo_icon_247683.png", soon: true },
       { name: "Kafka", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg", soon: true, invertDark: true },
       { name: "Python Script", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
     ],
@@ -61,13 +61,13 @@ const techData: TechCategory[] = [
   {
     key: "cloudPlatforms",
     items: [
-      { name: "AWS S3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+      { name: "AWS S3", icon: "https://www.freelogovectors.net/wp-content/uploads/2022/03/amazon_s3_logo_freelogovectors.net_.png" },
     ],
   },
   {
     key: "dataVisualization",
     items: [
-      { name: "Power BI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+      { name: "Power BI", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/250px-New_Power_BI_Logo.svg.png" },
       { name: "Streamlit", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" },
     ],
   },
