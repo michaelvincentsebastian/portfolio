@@ -106,11 +106,12 @@ export function Sidebar() {
             onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
             aria-label="Toggle theme"
+            suppressHydrationWarning
           >
             {mounted ? (
               resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />
             ) : (
-              <span className="h-[18px] w-[18px]" />
+              <span className="inline-block h-[18px] w-[18px]" />
             )}
           </motion.button>
           <motion.button
@@ -168,11 +169,12 @@ export function Sidebar() {
             onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground"
             aria-label="Toggle theme"
+            suppressHydrationWarning
           >
             {mounted ? (
               resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />
             ) : (
-              <span className="h-4 w-4" />
+              <span className="inline-block h-4 w-4" />
             )}
           </motion.button>
           <motion.button
