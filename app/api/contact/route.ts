@@ -2,8 +2,15 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const { email, subject, message } = await request.json();
+    const body = await request.json();
+    const { email, subject, message, botcheck } = body;
 
+    // 1. HONEYPOT: Jika field tersembunyi 'botcheck' diisi, anggap itu bot
+    if (botcheck) {
+      return NextResponse.json({ success: true, message: "Spam detected" });
+    }
+
+    // 2. VALIDASI INPUT
     if (!email || !subject || !message) {
       return NextResponse.json(
         { error: "All fields are required" },
@@ -11,41 +18,46 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send via Web3Forms (free tier, no API key required for basic usage)
-    // Replace with your own Web3Forms access key or other email service
-    const WEB3FORMS_KEY = process.env.WEB3FORMS_ACCESS_KEY;
+    const DISCORD_URL = process.env.DISCORD_WEBHOOK_URL;
 
-    if (!WEB3FORMS_KEY) {
-      // Fallback: log the message and return success for development
-      console.log("[Contact Form]", { email, subject, message });
-      return NextResponse.json({
-        success: true,
-        message: "Message received (email service not configured)",
-      });
-    }
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        from_name: email,
-        subject: subject,
-        message: `From: ${email}\n\n${message}`,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      return NextResponse.json({ success: true, message: "Message sent successfully" });
-    } else {
+    if (!DISCORD_URL) {
+      console.error("Discord Webhook URL is missing in .env");
       return NextResponse.json(
-        { error: "Failed to send message" },
+        { error: "Server configuration error" },
         { status: 500 }
       );
     }
-  } catch {
+
+    // 3. KIRIM KE DISCORD DENGAN FORMAT EMBED (BIAR RAPI)
+    const discordPayload = {
+      embeds: [
+        {
+          title: `📩 Pesan Baru: ${subject}`,
+          color: 0x06b6d4, // Warna Cyan sesuai tema webmu
+          fields: [
+            { name: "Dari", value: `\`${email}\``, inline: true },
+            { name: "Waktu", value: new Date().toLocaleString("id-ID"), inline: true },
+            { name: "Isi Pesan", value: message },
+          ],
+          footer: { text: "Michael's Portfolio Notification" },
+        },
+      ],
+    };
+
+    const response = await fetch(DISCORD_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(discordPayload),
+    });
+
+    if (response.ok) {
+      return NextResponse.json({ success: true, message: "Sent to Discord" });
+    } else {
+      throw new Error("Discord API failed");
+    }
+
+  } catch (error) {
+    console.error("Contact Error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

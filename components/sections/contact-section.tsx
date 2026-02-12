@@ -38,7 +38,12 @@ export function ContactSection() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formState),
+        body: JSON.stringify({
+          email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+          botcheck: "", // Selalu kirim kosong, biarkan bot yang mengisinya jika mereka iseng
+        }),
       });
 
       if (response.ok) {
