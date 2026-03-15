@@ -186,8 +186,8 @@ export const translations = {
       titleAccent: "Saya",
       description:
         "Pilihan karya terbaik saya, dari pipeline data hingga sistem cerdas",
-      campussly: {
-        name: "Campussly",
+      futuramap: {
+        name: "FuturaMap",
         description:
           "Produk data inovatif yang dirancang sebagai sistem pendukung keputusan cerdas untuk membantu siswa SMA memetakan peluang kelulusan di PTN melalui jalur SNBP. Mengintegrasikan ekosistem Data Lakehouse modern dengan DuckDB dan SQLMesh untuk mengelola pipeline data akademik melalui arsitektur Medallion (Bronze, Silver, Gold).",
       },
