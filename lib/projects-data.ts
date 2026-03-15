@@ -96,7 +96,7 @@ export const projectsDetail: ProjectDetail[] = [
   // PROJECT 1: CAMPUSSLY
   // ----------------------------------------------------------
   {
-    id: "futuraMap", // [EDIT: ID unik untuk proyek ini, gunakan slug format]
+    id: "futuramap", // [EDIT: ID unik untuk proyek ini, gunakan slug format]
     title: "FuturaMap",
     tagline: "Data as a Product",
     badge: "Data Lakehouse · Decision Support System · Smart Solution",
