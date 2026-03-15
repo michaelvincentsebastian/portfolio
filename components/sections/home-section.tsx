@@ -79,25 +79,6 @@ export function HomeSection() {
             </motion.button>
           </motion.div>
         </motion.div>
-
-        {/* Right profile picture */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex-shrink-0"
-        >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl border-2 border-accent/30 overflow-hidden shadow-[0_0_30px_rgba(6,182,212,0.15)]">
-            <Image
-              src="/images/pfp.png"
-              alt="Vincent - Data Engineer"
-              fill
-              className="object-cover"
-              priority
-              style={{ imageRendering: "pixelated" }}
-            />
-          </div>
-        </motion.div>
       </div>
 
       {/* What I Like tags */}
