@@ -21,7 +21,7 @@ type Project = {
 
 const projectsData: Project[] = [
   {
-    id: "campussly",
+    id: "futuramap",
     tags: ["DuckDB", "PostgreSQL", "MinIO", "DuckLake", "SQLMesh", "SmolLM2"],
     color: "text-cyan-400",
     gradient: "from-cyan-500/20 to-teal-500/20",
@@ -46,7 +46,7 @@ function ProjectCard({
   const [isHovered, setIsHovered] = useState(false);
 
   const projectContent =
-    project.id === "campussly" ? t.projects.campussly : t.projects.prospectingEngine;
+    project.id === "futuramap" ? t.projects.futuramap : t.projects.prospectingEngine;
 
   function handleClick() {
     router.push(`/projects/${project.id}`);
