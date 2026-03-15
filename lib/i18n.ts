@@ -58,8 +58,8 @@ export const translations = {
       titleAccent: "Projects",
       description:
         "A handpicked selection of my work, from data pipelines to intelligent systems",
-      campussly: {
-        name: "Campussly",
+      futuramap: {
+        name: "FuturaMap",
         description:
           "An innovative data product designed as an intelligent decision-support system to help high school students map their chances of admission to State Universities (PTN) through the SNBP selection pathway. Integrates a modern Data Lakehouse ecosystem with DuckDB and SQLMesh to manage academic data pipelines through a Medallion architecture (Bronze, Silver, Gold).",
       },
