@@ -96,20 +96,20 @@ export const projectsDetail: ProjectDetail[] = [
   // PROJECT 1: CAMPUSSLY
   // ----------------------------------------------------------
   {
-    id: "campussly",
-    title: "Campussly",
-    tagline: "[EDIT: Tagline singkat proyek Campussly, 1 kalimat]",
-    badge: "Data Lakehouse · Decision Support System",
+    id: "futuraMap", // [EDIT: ID unik untuk proyek ini, gunakan slug format]
+    title: "FuturaMap",
+    tagline: "Data as a Product",
+    badge: "Data Lakehouse · Decision Support System · Smart Solution",
     color: "text-cyan-400",
     gradient: "from-cyan-500/20 via-teal-500/10 to-transparent",
     status: "In Progress", // [EDIT: "Completed" | "In Progress" | "Archived"]
-    year: "2024", // [EDIT: Tahun proyek]
+    year: "2026", // [EDIT: Tahun proyek]
 
     overview:
-      "[EDIT: Tulis overview proyek Campussly di sini. Jelaskan apa itu Campussly, tujuannya, dan siapa target penggunanya. Minimal 2-3 paragraf. Contoh: Campussly adalah platform decision-support berbasis data yang dirancang untuk membantu siswa SMA dalam memetakan peluang kelulusan di PTN melalui jalur SNBP...]",
+      "FuturaMap merupakan platform decision-support berbasis data yang dirancang untuk membantu siswa SMA dalam menentukan jenjang karier sehingga bisa menentukan pilihan program studi yang tepat di perguruan tinggi negeri (PTN) Indonesia melalui jalur SNBP. Dengan mengintegrasikan berbagai sumber data akademik, sosial, dan ekonomi, FuturaMap memberikan rekomendasi Pekerjaan, Jurusan, dan Kampus yang paling sesuai dengan profil dari setiap siswa.",
 
     role: {
-      title: "[EDIT: Judul peranmu, e.g. 'Data Engineer & Full-Stack Developer']",
+      title: "Data Engineer & Product Developer",
       responsibilities: [
         "[EDIT: Tanggung jawab 1, e.g. 'Merancang arsitektur Data Lakehouse dengan pendekatan Medallion (Bronze, Silver, Gold)']",
         "[EDIT: Tanggung jawab 2, e.g. 'Membangun pipeline ETL menggunakan DuckDB dan SQLMesh']",
