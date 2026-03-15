@@ -1,8 +1,15 @@
 "use client";
 
+// ============================================================
+// components/sections/projects-section.tsx (UPDATED)
+// Perubahan: ProjectCard sekarang bisa dinavigasi ke halaman detail
+// menggunakan next/navigation dan next/link
+// ============================================================
+
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 type Project = {
@@ -35,10 +42,15 @@ function ProjectCard({
   index: number;
 }) {
   const { t } = useLanguage();
+  const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
 
   const projectContent =
     project.id === "campussly" ? t.projects.campussly : t.projects.prospectingEngine;
+
+  function handleClick() {
+    router.push(`/projects/${project.id}`);
+  }
 
   return (
     <motion.div
@@ -47,7 +59,11 @@ function ProjectCard({
       transition={{ delay: index * 0.15, duration: 0.5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-accent/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)]"
+      onClick={handleClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === "Enter" && handleClick()}
+      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-accent/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] focus:outline-none focus:ring-2 focus:ring-accent"
     >
       {/* Card header with gradient */}
       <div
@@ -72,7 +88,7 @@ function ProjectCard({
           </div>
         </motion.div>
 
-        {/* Hover overlay */}
+        {/* Hover overlay — "View Details" */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
@@ -84,21 +100,32 @@ function ProjectCard({
             className="flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground"
           >
             <ExternalLink size={16} />
-            <span>View Project</span>
+            <span>View Details</span>
           </motion.div>
         </motion.div>
       </div>
 
       {/* Card body */}
       <div className="flex flex-1 flex-col p-5">
-        <h3 className={`text-lg font-bold ${project.color}`}>
-          {projectContent.name}
-        </h3>
+        <div className="flex items-start justify-between gap-2">
+          <h3 className={`text-lg font-bold ${project.color}`}>
+            {projectContent.name}
+          </h3>
+          {/* Arrow icon yang muncul saat hover */}
+          <motion.div
+            initial={{ opacity: 0, x: -4 }}
+            animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -4 }}
+            className="shrink-0 text-muted-foreground"
+          >
+            <ArrowUpRight size={18} />
+          </motion.div>
+        </div>
+
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
           {projectContent.description}
         </p>
 
-        {/* Tags */}
+        {/* Tech tags */}
         <div className="mt-4 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <motion.span
@@ -109,6 +136,12 @@ function ProjectCard({
               {tag}
             </motion.span>
           ))}
+        </div>
+
+        {/* "View Details" text link di bagian bawah */}
+        <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-muted-foreground transition-colors group-hover:text-accent">
+          View project details
+          <ArrowUpRight size={12} />
         </div>
       </div>
     </motion.div>
