@@ -85,6 +85,68 @@ export type ProjectDetail = {
     demo?: string;
     docs?: string;
   };
+  tabbed?: TabbedContent;
+};
+
+// Tambahkan di lib/projects-data.ts, sebelum definisi ProjectDetail
+
+export type ComponentCard = {
+  id: string;
+  icon?: string;
+  title: string;
+  summary: string;
+  detail: string;
+};
+
+export type PipelineLayer = {
+  name: string;
+  items: string[];
+  color: string;
+  borderColor: string;
+};
+
+export type TargetUser = {
+  role: string;
+  motivation: string;
+};
+
+export type Problem = {
+  title: string;
+  description: string;
+};
+
+export type Solution = {
+  title: string;
+  description: string;
+};
+
+export type HomeTab = {
+  tagline: string;
+  vision: string;
+  mission: string;
+  targetUsers: TargetUser[];
+  problems: Problem[];
+  solutions: Solution[];
+};
+
+export type TechnicalTab = {
+  overview: string;
+  components: ComponentCard[];
+  pipelineLayers: PipelineLayer[];
+  techStack: TechBadge[];
+  features: Feature[];
+};
+
+export type ResultTab = {
+  note: string;
+  screenshots: Screenshot[];
+};
+
+export type TabbedContent = {
+  tabs: Array<"home" | "technical" | "result">;
+  home: { en: HomeTab; id: HomeTab };
+  technical: { en: TechnicalTab; id: TechnicalTab };
+  result: { en: ResultTab; id: ResultTab };
 };
 
 // ============================================================
