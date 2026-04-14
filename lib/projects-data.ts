@@ -93,17 +93,17 @@ export type ProjectDetail = {
 
 export const projectsDetail: ProjectDetail[] = [
   // ----------------------------------------------------------
-  // PROJECT 1: CAMPUSSLY
+  // PROJECT 1: FUTURAMAP
   // ----------------------------------------------------------
   {
-    id: "futuramap", // [EDIT: ID unik untuk proyek ini, gunakan slug format]
+    id: "futuramap",
     title: "FuturaMap",
     tagline: "Data as a Product",
     badge: "Data Lakehouse · Decision Support System · Smart Solution",
     color: "text-cyan-400",
     gradient: "from-cyan-500/20 via-teal-500/10 to-transparent",
-    status: "In Progress", // [EDIT: "Completed" | "In Progress" | "Archived"]
-    year: "2026", // [EDIT: Tahun proyek]
+    status: "In Progress",
+    year: "2026",
 
     overview:
       "FuturaMap merupakan platform decision-support berbasis data yang dirancang untuk membantu siswa SMA dalam menentukan jenjang karier sehingga bisa menentukan pilihan program studi yang tepat di perguruan tinggi negeri (PTN) Indonesia melalui jalur SNBP. Dengan mengintegrasikan berbagai sumber data akademik, sosial, dan ekonomi, FuturaMap memberikan rekomendasi Pekerjaan, Jurusan, dan Kampus yang paling sesuai dengan profil dari setiap siswa.",
@@ -115,7 +115,6 @@ export const projectsDetail: ProjectDetail[] = [
         "[EDIT: Tanggung jawab 2, e.g. 'Membangun pipeline ETL menggunakan DuckDB dan SQLMesh']",
         "[EDIT: Tanggung jawab 3]",
         "[EDIT: Tanggung jawab 4]",
-        // Tambah atau kurangi sesuai kebutuhan
       ],
     },
 
@@ -125,7 +124,7 @@ export const projectsDetail: ProjectDetail[] = [
     architecture: {
       description:
         "[EDIT: Jelaskan arsitektur sistem secara keseluruhan. Contoh: Campussly menggunakan arsitektur Data Lakehouse modern berbasis Medallion yang terdiri dari tiga layer: Bronze (raw data), Silver (cleaned & validated), dan Gold (aggregated & business-ready). Data disimpan di MinIO sebagai object storage, dengan DuckLake sebagai lakehouse catalog...]",
-      imageSrc: "/images/projects/campussly-architecture.png", // [EDIT: Ganti path atau hapus jika tidak ada]
+      imageSrc: "/images/projects/campussly-architecture.png",
       imageAlt: "Campussly Architecture Diagram",
       layers: [
         {
@@ -154,7 +153,6 @@ export const projectsDetail: ProjectDetail[] = [
       { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
       { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
       { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-      // [EDIT: Tambah tech stack lain jika ada]
     ],
 
     pipeline: {
@@ -191,7 +189,6 @@ export const projectsDetail: ProjectDetail[] = [
           description: "[EDIT: Deskripsi step 5]",
           tool: "[EDIT: Tool, e.g. 'Streamlit / Power BI']",
         },
-        // [EDIT: Tambah atau kurangi step sesuai pipeline asli]
       ],
     },
 
@@ -199,7 +196,7 @@ export const projectsDetail: ProjectDetail[] = [
       {
         title: "[EDIT: Fitur 1, e.g. 'Prediksi Peluang SNBP']",
         description: "[EDIT: Deskripsi fitur 1]",
-        icon: "Target", // Lucide icon name
+        icon: "Target",
       },
       {
         title: "[EDIT: Fitur 2, e.g. 'Medallion Architecture']",
@@ -216,7 +213,6 @@ export const projectsDetail: ProjectDetail[] = [
         description: "[EDIT: Deskripsi fitur 4]",
         icon: "Database",
       },
-      // [EDIT: Tambah fitur lain jika ada]
     ],
 
     results: {
@@ -238,28 +234,76 @@ export const projectsDetail: ProjectDetail[] = [
           label: "[EDIT: e.g. 'Data Accuracy']",
           description: "[EDIT: Deskripsi singkat]",
         },
-        // [EDIT: Tambah metrik lain]
       ],
     },
 
     screenshots: [
+      // LOGIN
       {
-        src: "/images/projects/campussly-1.png", // [EDIT: Ganti path screenshot]
-        alt: "Campussly Dashboard",
-        caption: "[EDIT: Caption screenshot 1]",
+        src: "/images/projects/futuramap-login.jpg",
+        alt: "FuturaMap Login Page",
+        caption: "Halaman Login — autentikasi siswa sebelum mengakses platform",
+      },
+      // PROFIL SISWA
+      {
+        src: "/images/projects/futuramap-profil-1.jpg",
+        alt: "FuturaMap Profil Siswa 1",
+        caption: "Profil Siswa — data akademik dan informasi personal siswa",
       },
       {
-        src: "/images/projects/campussly-2.png", // [EDIT: Ganti path screenshot]
-        alt: "Campussly Data Pipeline",
-        caption: "[EDIT: Caption screenshot 2]",
+        src: "/images/projects/futuramap-profil-2.jpg",
+        alt: "FuturaMap Profil Siswa 2",
+        caption: "Profil Siswa",
       },
-      // [EDIT: Tambah atau hapus screenshot]
+      // TRYOUT
+      {
+        src: "/images/projects/futuramap-tryout-1.jpg",
+        alt: "FuturaMap Tryout 1",
+        caption: "Tryout",
+      },
+      {
+        src: "/images/projects/futuramap-tryout-2.jpg",
+        alt: "FuturaMap Tryout 2",
+        caption: "Tryout",
+      },
+      {
+        src: "/images/projects/futuramap-tryout-3.jpg",
+        alt: "FuturaMap Tryout 3",
+        caption: "Tryout",
+      },
+      {
+        src: "/images/projects/futuramap-tryout-4.jpg",
+        alt: "FuturaMap Tryout 4",
+        caption: "Tryout",
+      },
+      {
+        src: "/images/projects/futuramap-tryout-5.jpg",
+        alt: "FuturaMap Tryout 5",
+        caption: "Tryout",
+      },
+      // REKOMENDASI KURSUS
+      {
+        src: "/images/projects/futuramap-kursus-1.jpg",
+        alt: "FuturaMap Rekomendasi Kursus 1",
+        caption: "Rekomendasi Kursus",
+      },
+      {
+        src: "/images/projects/futuramap-kursus-2.jpg",
+        alt: "FuturaMap Rekomendasi Kursus 2",
+        caption: "Rekomendasi Kursus",
+      },
+      // EMAIL ALERT
+      {
+        src: "/images/projects/futuramap-email.jpg",
+        alt: "FuturaMap Email Alert",
+        caption: "Email Alert",
+      },
     ],
 
     links: {
       github: "https://github.com/[EDIT: username/repo-campussly]",
-      demo: undefined, // [EDIT: Isi URL demo jika ada, atau biarkan undefined]
-      docs: undefined, // [EDIT: Isi URL docs jika ada]
+      demo: undefined,
+      docs: undefined,
     },
   },
 
@@ -273,8 +317,8 @@ export const projectsDetail: ProjectDetail[] = [
     badge: "AI Automation · n8n · CRM",
     color: "text-fuchsia-400",
     gradient: "from-fuchsia-500/20 via-pink-500/10 to-transparent",
-    status: "Completed", // [EDIT: "Completed" | "In Progress" | "Archived"]
-    year: "2024", // [EDIT: Tahun proyek]
+    status: "Completed",
+    year: "2024",
 
     overview:
       "[EDIT: Tulis overview proyek Automated Prospecting Engine. Jelaskan konteks bisnis, solusi yang dibangun, dan dampaknya. Contoh: Automated Prospecting Engine adalah sistem otomasi cerdas yang dibangun untuk merevolusi cara tim Sales mengelola dan mengkualifikasi prospek (leads). Sistem ini mengintegrasikan n8n sebagai workflow orchestrator dengan AI Agent berbasis Gemini 2.5 untuk melakukan kualifikasi otomatis...]",
@@ -286,7 +330,6 @@ export const projectsDetail: ProjectDetail[] = [
         "[EDIT: Tanggung jawab 2, e.g. 'Mengintegrasikan Gemini 2.5 sebagai AI Agent untuk kualifikasi leads']",
         "[EDIT: Tanggung jawab 3, e.g. 'Membangun koneksi antara n8n dan TwentyCRM via API']",
         "[EDIT: Tanggung jawab 4]",
-        // Tambah atau kurangi
       ],
     },
 
@@ -296,9 +339,9 @@ export const projectsDetail: ProjectDetail[] = [
     architecture: {
       description:
         "[EDIT: Jelaskan arsitektur sistem. Contoh: Sistem terdiri dari tiga komponen utama: (1) n8n sebagai workflow orchestrator yang menangani trigger dan routing, (2) AI Agent berbasis Gemini 2.5 yang melakukan analisis dan kualifikasi prospek berdasarkan parameter yang ditentukan, dan (3) TwentyCRM sebagai sistem penyimpanan dan manajemen data prospek terformat...]",
-      imageSrc: "/images/projects/prospecting-architecture.png", // [EDIT: Ganti atau hapus]
+      imageSrc: "/images/projects/prospecting-architecture.png",
       imageAlt: "Automated Prospecting Engine Architecture",
-      layers: undefined, // Tidak pakai Medallion untuk proyek ini
+      layers: undefined,
     },
 
     techStack: [
@@ -306,9 +349,6 @@ export const projectsDetail: ProjectDetail[] = [
       { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
       { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
       { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-      // [EDIT: Tambah Gemini icon atau tool lain]
-      // { name: "Gemini 2.5", icon: "/images/gemini.png" },
-      // { name: "TwentyCRM", icon: "/images/twentycrm.png" },
     ],
 
     pipeline: {
@@ -345,7 +385,6 @@ export const projectsDetail: ProjectDetail[] = [
           description: "[EDIT: Deskripsi step 5, e.g. 'Prospek yang telah terklasifikasi disinkronkan ke TwentyCRM dengan segmen dan prioritas yang sudah ditentukan']",
           tool: "[EDIT: e.g. 'TwentyCRM API']",
         },
-        // [EDIT: Tambah atau kurangi step]
       ],
     },
 
@@ -370,7 +409,6 @@ export const projectsDetail: ProjectDetail[] = [
         description: "[EDIT: Deskripsi fitur 4]",
         icon: "Bell",
       },
-      // [EDIT: Tambah fitur lain]
     ],
 
     results: {
@@ -392,27 +430,25 @@ export const projectsDetail: ProjectDetail[] = [
           label: "[EDIT: e.g. 'Faster Lead Response']",
           description: "[EDIT: Deskripsi singkat]",
         },
-        // [EDIT: Tambah metrik lain]
       ],
     },
 
     screenshots: [
       {
-        src: "/images/projects/prospecting-1.png", // [EDIT: Ganti path]
+        src: "/images/projects/prospecting-1.png",
         alt: "n8n Workflow Overview",
         caption: "[EDIT: Caption screenshot 1]",
       },
       {
-        src: "/images/projects/prospecting-2.png", // [EDIT: Ganti path]
+        src: "/images/projects/prospecting-2.png",
         alt: "CRM Dashboard",
         caption: "[EDIT: Caption screenshot 2]",
       },
-      // [EDIT: Tambah atau hapus]
     ],
 
     links: {
       github: "https://github.com/[EDIT: username/repo-prospecting-engine]",
-      demo: undefined, // [EDIT: Isi atau biarkan undefined]
+      demo: undefined,
       docs: undefined,
     },
   },

@@ -61,7 +61,7 @@ export const translations = {
       futuramap: {
         name: "FuturaMap",
         description:
-          "An innovative data product designed as an intelligent decision-support system to help high school students map their chances of admission to State Universities (PTN) through the SNBP selection pathway. Integrates a modern Data Lakehouse ecosystem with DuckDB and SQLMesh to manage academic data pipelines through a Medallion architecture (Bronze, Silver, Gold).",
+          "A Data as a Product platform built on a Data Lakehouse architecture to help students map their college readiness — featuring SNBT score gap analysis, AI-powered course recommendations, and automated BK counselor alerts.",
       },
       prospectingEngine: {
         name: "Automated Prospecting Engine",
@@ -189,7 +189,7 @@ export const translations = {
       futuramap: {
         name: "FuturaMap",
         description:
-          "Produk data inovatif yang dirancang sebagai sistem pendukung keputusan cerdas untuk membantu siswa SMA memetakan peluang kelulusan di PTN melalui jalur SNBP. Mengintegrasikan ekosistem Data Lakehouse modern dengan DuckDB dan SQLMesh untuk mengelola pipeline data akademik melalui arsitektur Medallion (Bronze, Silver, Gold).",
+          "Platform Data as a Product berbasis Data Lakehouse untuk membantu siswa memetakan kesiapan kuliah — dilengkapi gap analysis nilai SNBT, rekomendasi kursus berbasis AI, dan sistem alert otomatis ke Guru BK.",
       },
       prospectingEngine: {
         name: "Automated Prospecting Engine",
